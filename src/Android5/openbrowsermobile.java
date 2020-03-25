@@ -6,6 +6,10 @@ import io.appium.java_client.android.AndroidDriver;
 //import io.appium.java_client.android.AndroidElement;
 //import java.io.File;
 import java.net.URL;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 //import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.AppiumDriver;
@@ -30,7 +34,7 @@ public class openbrowsermobile {
 			caps.setCapability("noReset", true);
 			
 			//Set ChromeDriver location
-			System.setProperty("webdriver.chrome.driver","D:\\PROGRAMAS\\driver\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver","D:\\PROGRAMAS\\Browser driver\\chromedriver.exe");
 			
 			//Instantiate Appium Driver
 			AppiumDriver<MobileElement> driver = null;
@@ -43,6 +47,21 @@ public class openbrowsermobile {
 					
 			//Open URL in Chrome Browser
 			driver.get("https://www.google.com");
+			
+			//driver.findElementByClassName("android.widget.EditText").sendKeys("hola");
+			
+			//driver.findElementById("com.bt.bms:id/btnLogin").click();
+			//driver.findElementById("com.bt.bms:id/btnSignUp").click();
+		    int s=driver.findElements(By.className("android.widget.EditText")).size();
+			System.out.println(s);
+			List<MobileElement>a=driver.findElements(By.className("android.widget.EditText"));
+			a.get(0).sendKeys("Appium");
+			
+			driver.quit();
+			
+			
+			
+			
 		}
 
 }
